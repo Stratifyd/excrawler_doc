@@ -1,0 +1,679 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+		<link href="images/images/favicon.ico" rel="icon" type="image/ico" />
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;python&quot;,&quot;javascript&quot;,&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#external-crawler" class="toc-h1 toc-link" data-title="external-crawler">External Crawler</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#api-on-the-external-crawler-side" class="toc-h2 toc-link" data-title="api-on-the-external-crawler-side">API on the External Crawler Side</a>
+                  </li>
+                  <li>
+                    <a href="#api-on-the-backend-side" class="toc-h2 toc-link" data-title="api-on-the-backend-side">API on the Backend Side</a>
+                  </li>
+                  <li>
+                    <a href="#developing-workflow" class="toc-h2 toc-link" data-title="developing-workflow">Developing Workflow</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#external-object" class="toc-h1 toc-link" data-title="external-object">External Object</a>
+          </li>
+          <li>
+            <a href="#task-object" class="toc-h1 toc-link" data-title="task-object">Task Object</a>
+          </li>
+          <li>
+            <a href="#relational-object" class="toc-h1 toc-link" data-title="relational-object">Relational Object</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create" class="toc-h2 toc-link" data-title="create">Create</a>
+                  </li>
+                  <li>
+                    <a href="#patch" class="toc-h2 toc-link" data-title="patch">Patch</a>
+                  </li>
+                  <li>
+                    <a href="#overwite" class="toc-h2 toc-link" data-title="overwite">Overwite</a>
+                  </li>
+                  <li>
+                    <a href="#delete" class="toc-h2 toc-link" data-title="delete">Delete</a>
+                  </li>
+                  <li>
+                    <a href="#actions" class="toc-h2 toc-link" data-title="actions">Actions</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Stratifyd External Crawler Dev Document</p>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="o">//</span> <span class="n">get</span> <span class="n">API</span> <span class="n">Key</span>
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"{end_point}/user/apikey"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// import signals api</span>
+<span class="kd">var</span> <span class="nx">Signals</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'signals-api'</span><span class="p">).</span><span class="nx">Signals</span><span class="p">;</span>
+<span class="c1">// load your credential</span>
+<span class="kd">var</span> <span class="nx">kAPPCredential</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./appCredential'</span><span class="p">);</span>
+<span class="c1">// if region is undefined, then it is defaulted to en</span>
+<span class="c1">// you can replace it with cn cn-2</span>
+<span class="kd">var</span> <span class="nx">region</span> <span class="o">=</span> <span class="s1">'en'</span>
+<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">Signals</span><span class="p">(</span><span class="nx">kAPPCredential</span><span class="p">,</span><span class="s1">'en'</span><span class="p">);</span>
+<span class="c1">// do something with the api ...</span>
+</code></pre>
+<blockquote>
+<p>Make sure to replace <code>end_point</code> with your API key.</p>
+</blockquote>
+
+<p>You can find your API key on the <code>/explorer.html?mode=setting</code> or GET through <code>/user/apikey</code></p>
+
+<aside class="notice">
+Make sure the API key is not expired.
+</aside>
+<h1 id='external-crawler'>External Crawler</h1>
+<p>External Crawler (<b>EC</b>) is a HTTPS server to crawl data from a certain data source and send to Stratifyd backend (<b>BE</b>).
+EC exposes a set of REST API to communicate with BE.
+EC writes back data and updates task status throught REST API on BE.
+Users can start a new task through Stratifyd frontend (<b>FE</b>).</p>
+<h2 id='api-on-the-external-crawler-side'>API on the External Crawler Side</h2><h3 id='task'>Task</h3>
+<p>EC is responsible to maintain a crawler for each running task on the BE.
+Each task has a set of parameters, a credential and a status.</p>
+
+<p>The credential contains either an OAuth field or a pair of user/password.</p>
+
+<table><thead>
+<tr>
+<th>Credential</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>oauth</td>
+<td>OAuth credential</td>
+</tr>
+<tr>
+<td>user</td>
+<td>User id</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Password</td>
+</tr>
+</tbody></table>
+
+<p>The status should contains code, message and an optional detail</p>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>Status code</td>
+</tr>
+<tr>
+<td>message</td>
+<td>Human readable message</td>
+</tr>
+<tr>
+<td>detail</td>
+<td>Other details for debugging</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>New</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Running</td>
+</tr>
+<tr>
+<td>200</td>
+<td>Done</td>
+</tr>
+<tr>
+<td>408</td>
+<td>Timeout</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Error</td>
+</tr>
+</tbody></table>
+<h3 id='start-a-new-task'>Start a New Task</h3>
+<p>The BE send all the parameters necessary to create a new task. The EC returns a callback url for this new task.  The EC is also resposible to keep the task id for further operations.</p>
+
+<p><code>POST /task</code></p>
+
+<p>The post body contains the following values.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>fid</td>
+<td>Task id. EC should keep it until the task is closed.</td>
+</tr>
+<tr>
+<td>params</td>
+<td>Parameters to start the task. FE generates a UI according to the parameters registered in the external object. The user is resposible to fill the params.</td>
+</tr>
+<tr>
+<td>credential</td>
+<td>An optional object containing user credential. It contains either <code>oauth</code> or <code>user</code> &amp; <code>password</code>. It may contains other custom fields (eg. Foresee, Survey Monkey). OAuth is recommended for a securied access.  The EC should not keep the credential for other tasks.</td>
+</tr>
+</tbody></table>
+
+<p>The response should follow the standard payload format. EC should generate a callback url for further operations.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>callback</td>
+<td>The callback url to notify the status change</td>
+</tr>
+<tr>
+<td>status</td>
+<td>The current status of the task on EC</td>
+</tr>
+</tbody></table>
+<pre class="highlight python tab-python"><code><span class="c"># need python example</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">EC_end_point</span><span class="p">}</span><span class="s2">/task`</span><span class="p">,</span> <span class="p">{</span>
+
+    <span class="na">fid</span><span class="p">:</span> <span class="s2">`task_object_id`</span><span class="p">,</span>
+    <span class="na">params</span><span class="p">:</span> <span class="p">{</span>
+        <span class="cm">/* all necessary parameters */</span>
+    <span class="p">},</span>
+    <span class="na">credential</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">oauth</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">expiry</span><span class="p">:</span> <span class="s1">'expiry_date'</span><span class="p">,</span> 
+            <span class="na">issued</span><span class="p">:</span> <span class="s1">'token_issue_date'</span><span class="p">,</span> 
+            <span class="na">user</span><span class="p">:</span> <span class="s1">'user_id'</span><span class="p">,</span> 
+            <span class="na">reported_name</span><span class="p">:</span> <span class="s1">'user_display_name'</span>
+            <span class="na">email_address</span><span class="p">:</span> <span class="s1">'user_email'</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">payload</span> <span class="o">=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">payload</span>
+    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="nx">payload</span><span class="p">.</span><span class="nx">callback</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">status</span> <span class="o">=</span> <span class="nx">payload</span><span class="p">.</span><span class="nx">status</span><span class="p">;</span> <span class="c1">// the current status</span>
+    <span class="c1">// keep the callback for further operation</span>
+
+<span class="p">})</span>
+</code></pre><h3 id='notify-task-change'>Notify Task Change</h3>
+<p>The BE notify the status change through the callback it received from the new task call.
+It&#39;s recommended to reuse the <code>/task</code> call.</p>
+
+<p><code>PATCH /task/{taskId}/status</code></p>
+
+<p>The post body</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>Status change</td>
+</tr>
+<tr>
+<td>message</td>
+<td>Message for human&#39;s eyes</td>
+</tr>
+<tr>
+<td>detail</td>
+<td>Extra message ( eg. exception detail ) for debuging</td>
+</tr>
+</tbody></table>
+<pre class="highlight python tab-python"><code><span class="c"># need python example</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">$</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">EC_end_point</span><span class="p">}</span><span class="s2">/task/</span><span class="p">${</span><span class="nx">taskId</span><span class="p">}</span><span class="s2">/status`</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">code</span><span class="p">:</span> <span class="mi">408</span><span class="p">,</span>
+    <span class="na">message</span><span class="p">:</span> <span class="s1">'Task is timeout'</span><span class="p">,</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// recycle the resource</span>
+<span class="p">})</span>
+</code></pre><h2 id='api-on-the-backend-side'>API on the Backend Side</h2><h3 id='upload-data'>Upload Data</h3>
+<p>The EC post data to the BE in JSON with new line (<b>CR</b>);
+Each doc is a JSON dictionary. Escape each new line char for string values.
+Docs are joined with CR. So that the FE can post with gzipped stream.</p>
+
+<p><code>POST /actions/tasks/{task_id}/upload</code></p>
+<pre class="highlight python tab-python"><code><span class="c"># need python example</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code>
+<span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">`/actions/tasks/</span><span class="p">${</span><span class="nx">task_id</span><span class="p">}</span><span class="s2">/upload`</span><span class="p">,</span>
+    <span class="nx">docs</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">){</span> 
+        <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="nx">value</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="o">===</span> <span class="s1">'string'</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\n</span><span class="sr">/g</span><span class="p">,</span><span class="s1">' '</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span> 
+    <span class="p">}).</span><span class="nx">join</span><span class="p">(</span><span class="s1">'\n'</span><span class="p">),</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// OK</span>
+    <span class="p">}).</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">jqxhr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">switch</span><span class="p">(</span> <span class="nx">jqxhr</span><span class="p">.</span><span class="nx">status</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="mi">400</span><span class="p">:</span>
+                <span class="c1">// broken post body</span>
+            <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">406</span><span class="p">:</span>
+                <span class="c1">// doc is invalid </span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+</code></pre><h3 id='change-status'>Change Status</h3>
+<p>The EC can close the task or report any status change. The status change also reflected in the stream linked to task.</p>
+
+<p><code>POST /actions/tasks/{task_id}/status</code></p>
+
+<p>The post body</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>Status change</td>
+</tr>
+<tr>
+<td>message</td>
+<td>Message for human&#39;s eyes</td>
+</tr>
+<tr>
+<td>detail</td>
+<td>Extra message ( eg. exception detail ) for debuging</td>
+</tr>
+</tbody></table>
+<h2 id='developing-workflow'>Developing Workflow</h2>
+<ol>
+<li>Start</li>
+<li>Register an external crawler by create an <a href='#external-object'>external object</a></li>
+</ol>
+<h1 id='external-object'>External Object</h1><h1 id='task-object'>Task Object</h1><h1 id='relational-object'>Relational Object</h1>
+<p>Relational object is the fundament of the backend system.  Most of the handlers are relational objects.</p>
+<h2 id='create'>Create</h2>
+<p>Create a relational object of specific type. The object is initialized with the JSON in the post body.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /{type}</code></p>
+<pre class="highlight python tab-python"><code><span class="c"># need python example</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">Signals</span><span class="p">.</span><span class="nx">APIPost</span><span class="p">(</span> <span class="s1">'/analyses/'</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s2">"meta"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Object Name"</span><span class="p">,</span>
+            <span class="s2">"links"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"from"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"stream"</span><span class="p">,</span><span class="s2">"fid"</span><span class="p">:</span><span class="s2">"xxxxxxx"</span><span class="p">}}]</span>
+        <span class="p">},</span>
+        <span class="s2">"params"</span><span class="p">:</span> <span class="p">{</span> <span class="cm">/*others*/</span> <span class="p">}</span>
+    <span class="p">},</span> <span class="nx">callback</span> 
+<span class="p">);</span>
+</code></pre>
+<aside class="notice">
+The <code>meta.links</code> is a special field which can be only used in the POST.  It's used to initialize the link graph and it's not returned with any query of the relational object.  Use <code>/links</code> to query the graph.
+</aside>
+<h2 id='patch'>Patch</h2>
+<p>Recursively replace the value in the object by keyword.</p>
+
+<aside class="notice">
+To change a list/array, you have to send a complete list.
+</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PATCH /{type}/{fid}</code></p>
+<pre class="highlight python tab-python"><code><span class="c"># need python example</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">Signals</span><span class="p">.</span><span class="nx">APIPatch</span><span class="p">(</span> <span class="s2">`/analyses/</span><span class="p">${</span><span class="nx">fid</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s2">"meta"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"new name"</span>
+        <span class="p">}</span>
+    <span class="p">},</span><span class="nx">callback</span>
+<span class="p">);</span>
+</code></pre><h2 id='overwite'>Overwite</h2>
+<p>Complete overwrite the existing object.  <code>meta.links</code> doesn&#39;t work in this call.</p>
+
+<p><code>PUT /{type}/{fid}</code></p>
+<pre class="highlight python tab-python"><code><span class="c"># need python example</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">Signals</span><span class="p">.</span><span class="nx">APIPut</span><span class="p">(</span> <span class="s2">`/analyses/</span><span class="p">${</span><span class="nx">fid</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s2">"meta"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"new name"</span>
+        <span class="p">}</span>
+    <span class="p">},</span><span class="nx">callback</span>
+<span class="p">);</span>
+</code></pre><h2 id='delete'>Delete</h2>
+<p>Delete an existing relational object.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>DELETE /{type}/{fid}</code></p>
+<pre class="highlight python tab-python"><code><span class="c"># need python example</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">Signals</span><span class="p">.</span><span class="nx">APIDelete</span><span class="p">(</span> <span class="s2">`/analyses/</span><span class="p">${</span><span class="nx">fid</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="nx">callback</span> <span class="p">};</span>
+</code></pre><h2 id='actions'>Actions</h2>
+<p>There are actions calls for specific purpose.  Each type has a different set of actions.</p>
+
+<p>For example</p>
+
+<p>POST <code>/actions/models/${fid}/train</code></p>
+<h1 id='errors'>Errors</h1>
+<aside class="notice">
+This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+</aside>
+
+<p>The Kittn API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified kitten could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The kitten requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
