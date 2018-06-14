@@ -12,21 +12,37 @@ A stream can has only one crawler object linked.  And a crawler can has only one
 
 ## Create a Crawler
 
-`POST /crawlers`
+Use `POST /actions/externals/{fid}/crawler`
+
+FE should not create a crawler without external object.
+
+## Start a New Task
+
+`POST /actions/crawlers/{fid}/task`
 
 ```javascript
 // in the FE
-APIPost( '/crawlers', {
-	meta: { links: [{ to: { fid: stream_id, type: 'streams' }}], external: external_object_id }
-}, (json) => {
+APIPost( '/actions/crawlers/${fid}/task', {
+	params: { /* override params if necessary */ }
+}, (json, status, xhr ) => {
+
+	if( jqxhr.status === 208 ) {
+		// there is a running task
+	}
+
 })
 ```
 
-Field | Meaning
------ | --------
-meta  | Meta must contains one and only one link to a stream.  Meta should also has a fid of the external object in the field external
-params| Parameter dict
-credential | It contains either an oauth field or a pair of user/password.
+The task import params and credential from the crawler and send them to external server.
+It merges the params in the post body with the params from crawler.
+
+Return `208` if there is a running task for the crawler
+
+## Retry a Task
+
+`POST /actions/crawlers/{fid}/task/${task_fid}`
+
+
 
 
 

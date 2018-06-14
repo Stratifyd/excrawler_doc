@@ -2,9 +2,51 @@
 
 External object is a [relational object](#relational-object) representing a resigtered crawler on the backend.
 
-## Create an External Object
+## Create/Update an External Object
 
 `POST /externals`
+
+`PATCH /externals/{fid}`
+
+```javascript
+
+APIPost( `/externals`, {
+	meta: {
+		name: 'display name',
+		image: 'url to your icon',
+		description: 'bla bla bla'
+	},
+	parameters: [
+		/*parameter list*/
+	],
+	crendential: {
+		oauth: 'https://my_oauth_callback',
+	},
+	analysis: { /* analysis prototype */ }
+
+},(json) => {
+
+	var { payload } = json;
+	var { meta } = payload;
+	var { fid, version }
+
+	/*
+		Keep the fid and version.
+		The fid is the unique id to indetify your crawler on BE.
+		The BE will send the version to the external server in the url parameter.
+		The version number get increased everytime the dev changes the external object.
+	*/
+
+})
+
+```
+<aside class="notice">
+Crawler dev should keep the fid and version.
+</aside>
+
+The fid is the unique id to indetify your crawler on BE.
+The BE will send the version to the external server in the url parameter.
+The version number get increased everytime the dev changes the external object.
 
 Fields | Meaning
 ------ | -------
@@ -16,6 +58,7 @@ schema | A [JSON schema](http://json-schema.org/) to validate the doc in upload 
 docIdField | The field name used as unique doc id.  The BE generate the id by the content of the doc when the field is missing.
 headers | Custom headers for HTTP requests from BE to EC
 parameters | Task parameter list
+analysis | Analysis prototype
 
 
 ### Parameter
@@ -34,6 +77,39 @@ max   | Maximum value, only legit for numerical type
 options | Option list for list|multi_search type.  Each item can be a string or a object of { value, label }
 
 
+## Create a Crawler for a Stream
 
+`POST /actions/externals/{fid}/crawler`
+
+```javascript
+
+APIPost( `/actions/externals/${fid}/crawler`, {
+	meta: {
+		links: [{
+			from: { type: 'streams', fid: stream_id } // there should be one and only one stream
+		}]
+	},
+	params: {
+		/*param dict here*/
+	},
+	crendential: {
+		oauth: {
+			/* oauth here */
+		}
+	}
+},(json) => {
+
+	var { payload } = json;
+	var { crawler, analysis } = payload;
+	
+	// get one crawler object and one analysis object
+
+})
+
+```
+
+![Data Ingestion](diagrams/dataIngestion.svg)
+
+The crawler action creates a crawler and a predefined analysis, links them to a stream.
 
 

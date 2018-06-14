@@ -12,14 +12,11 @@ Subdomain admin is responsible to publish a specific version of the crawler.
 
 <aside class="notice">
 There should be not more than one version under development on the BE.
-</aside>
-
-<aside class="notice">
 There is only one version published across a specific subdomain.
 </aside>
 
 <aside class='warning'>
-Admin featuer is not available until Stage 2.
+Admin feature and JSON Schema is not available until Stage 2.
 </aside>
 
 ![create crawler](diagrams/createCrawler.svg)
@@ -30,9 +27,14 @@ The front end user is responsible to grant access and fill necessary parameters 
 
 BE is responsible to delegate the task request to EC, receive upload from EC, monitor task status change, post notification to FE.
 
-## External Crawler Side
+## External Crawler Server
+
+![task lifecycle](diagrams/externalCrawlerServer.svg)
+
 
 ### Task
+
+![task lifecycle](diagrams/externalCrawlerTask.svg)
 
 EC is responsible to maintain a crawler for each running task on the BE.
 Each task has a set of parameters, a credential and a status.
@@ -66,14 +68,14 @@ Status Code | Meaning
 
 The BE send all the parameters necessary to create a new task. The EC returns a callback url for this new task.  The EC is also resposible to keep the task id for further operations.
 
-`POST /task`
+`POST /task?version={external_crawler_version}`
 
 ```python
 # need python example
 ```
 
 ```javascript
-$.post(`${EC_end_point}/task`, {
+$.post(`${EC_end_point}/task?version=${external_crawler_version}`, {
 
 	fid: `task_object_id`,
 	params: {
@@ -120,14 +122,14 @@ status | The current status of the task on EC
 The BE sends the status change through the callback it received from the new task call.
 It's recommended to reuse the `/task` call.
 
-`PATCH /task/{taskId}/status`
+`PATCH /task/{taskId}/status?version={external_crawler_version}`
 
 ```python
 # need python example
 ```
 
 ```javascript
-$.patch(`${EC_end_point}/task/${taskId}/status`, {
+$.patch(`${EC_end_point}/task/${taskId}/status?version=${external_crawler_version}`, {
 	code: 408,
 	message: 'Task is timeout',
 }, function(json) {
@@ -145,80 +147,11 @@ detail | Extra message ( eg. exception detail ) for debuging
 
 
 
-## Backend Side
+## Backend Server
 
-### Upload Data
+BE exposes [task object](#task-object) to the external crawler server.
 
-The EC post data to the BE in JSON with new line (<b>CR</b>);
-Each doc is a JSON dictionary. Escape each new line char for string values.
-Docs are joined with CR. So that the FE can post with gzipped stream.
-
-`POST /actions/tasks/{task_id}/upload`
-
-```python
-# need python example
-```
-
-```javascript
-// on the external crawler side
-$.post(`/actions/tasks/${task_id}/upload`,
-	docs.map(function(d){ 
-		return JSON.stringify(d,function(key,value){
-			if( typeof(value) === 'string' ) {
-				return string.replace(/\n/g,' '); // escape or replace CR.
-			}
-		}); 
-	}).join('\n'), function(result) {
-		// OK
-	}).fail(function(jqxhr) {
-		switch( jqxhr.status ) {
-			case 400:
-				// broken post body
-			break;
-			case 406:
-				// doc is invalid 
-			break;
-		}
-	});
-```
-
-
-### Change Status
-
-The EC can close the task or report any status change. The status change also reflected in the stream linked to task.
-
-`POST /actions/tasks/{task_id}/status`
-
-```python
-# need python example
-```
-
-```javascript
-// on the external crawler side
-$.post(`/actions/tasks/${task_id}/status`,
-	{
-		code: 200,
-		message: 'task done'
-	}), function(result) {
-		// OK
-	}).fail(function(jqxhr) {
-		switch( jqxhr.status ) {
-			case 400:
-				// broken post body
-			break;
-			case 404:
-				// task is not found 
-			break;
-		}
-	});
-```
-
-The post body
-
-Field | Meaning
----------- | -------
-code | Status change
-message | Message for human's eyes
-detail | Extra message ( eg. exception detail ) for debuging
+1. Upload data through `POST /actions/tasks/{task_id}/upload`.
+2. Notify task status change throuhg `POST /actions/tasks/{task_id}/status`
 
 

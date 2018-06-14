@@ -26,8 +26,8 @@ search: true
 
 # Introduction
 
-Stratifyd External Crawler Document ( Draft-1 )
-For internal development use.
+Stratifyd External Crawler Document ( Draft-1 for internal development use )
+
 
 
 

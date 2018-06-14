@@ -5,22 +5,94 @@ It is also a change set to the stream.  When the user delete the task, he remove
 
 ## Create a Task
 
-`POST /tasks`
+Use `POST /actions/crawlers/{fid}/task`
 
-```javascript
-// in the FE
-APIPost( '/tasks', {
-	meta: { links: [{ to: { fid: stream_id, type: 'streams' }}], external: external_object_id }
-}, (json) => {
-})
+FE should not create a task without crawler object.
+
+## Delete a task
+
+`DELETE /actions/tasks/{fid}`
+
+Stop the task and remove the doc from the stream.
+
+## Retry a task
+
+Use `POST /actions/crawlers/{fid}/task/${task_fid}`
+
+
+## Upload Data
+
+The EC post data to the BE in JSON with new line (<b>CR</b>);
+Each doc is a JSON dictionary. Escape each new line char for string values.
+Docs are joined with CR. So that the FE can post with gzipped stream.
+
+`POST /actions/tasks/{task_id}/upload`
+
+```python
+# need python example
 ```
 
-Field | Meaning
------ | --------
-meta  | Meta must contains one and only one link to a stream.  Meta should also has a fid of the external object in the field external
-params| Parameter dict
-credential | It contains either an oauth field or a pair of user/password.
+```javascript
+// on the external crawler side
+$.post(`/actions/tasks/${task_id}/upload`,
+	docs.map(function(d){ 
+		return JSON.stringify(d,function(key,value){
+			if( typeof(value) === 'string' ) {
+				return string.replace(/\n/g,' '); // escape or replace CR.
+			}
+		}); 
+	}).join('\n'), function(result) {
+		// OK
+	}).fail(function(jqxhr) {
+		switch( jqxhr.status ) {
+			case 400:
+				// broken post body
+			break;
+			case 406:
+				// doc is invalid 
+			break;
+		}
+	});
+```
 
+
+## Change Status
+
+The EC can close the task or report any status change. The status change also reflected in the stream linked to task.
+
+`POST /actions/tasks/{task_id}/status`
+
+```python
+# need python example
+```
+
+```javascript
+// on the external crawler side
+$.post(`/actions/tasks/${task_id}/status`,
+	{
+		code: 200,
+		message: 'task done'
+	}), function(result) {
+		// OK
+	}).fail(function(jqxhr) {
+		switch( jqxhr.status ) {
+			case 400:
+				// broken post body
+			break;
+			case 404:
+				// task is not found 
+			break;
+		}
+	});
+```
+
+The post body
+
+Field | Meaning
+---------- | -------
+code | Status change
+message | Message for human's eyes
+detail | Extra message ( eg. exception detail ) for debuging
 
 
 
