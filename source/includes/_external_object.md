@@ -1,1 +1,39 @@
 # External Object
+
+External object is a [relational object](#relational-object) representing a resigtered crawler on the backend.
+
+## Create an External Object
+
+`POST /externals`
+
+Fields | Meaning
+------ | -------
+meta   | Name, image, description
+credential | Credential requirement.  It can be undefined, 'basic' or 'oauth'.
+oauth  | A callback url to trigger OAuth procedure.  This will be opened in a popup browser window.
+oauthParameters | Parameters required for OAuth.  These params will be append to the oauth callback url.
+schema | A [JSON schema](http://json-schema.org/) to validate the doc in upload request
+docIdField | The field name used as unique doc id.  The BE generate the id by the content of the doc when the field is missing.
+headers | Custom headers for HTTP requests from BE to EC
+parameters | Task parameter list
+
+
+### Parameter
+
+FE generates UI according to the parameter list.
+
+Field | Meaning
+----- | -------
+name  | Key of the parameter
+display_name | Name on the UI
+description | Description
+req   | Is required or not, boolean
+type  | string, password, bool, date, location, multi_bool, list, multi_search, interger
+min   | Minimum value, only legit for numerical type
+max   | Maximum value, only legit for numerical type
+options | Option list for list|multi_search type.  Each item can be a string or a object of { value, label }
+
+
+
+
+

@@ -6,8 +6,6 @@ Relational object is the fundament of the backend system.  Most of the handlers 
 
 Create a relational object of specific type. The object is initialized with the JSON in the post body.
 
-### HTTP Request
-
 `POST /{type}`
 
 ```python
@@ -37,8 +35,6 @@ Recursively replace the value in the object by keyword.
 <aside class="notice">
 To change a list/array, you have to send a complete list.
 </aside>
-
-### HTTP Request
 
 `PATCH /{type}/{fid}`
 
@@ -80,7 +76,6 @@ Signals.APIPut( `/analyses/${fid}`,
 
 Delete an existing relational object.
 
-### HTTP Request
 
 `DELETE /{type}/{fid}`
 

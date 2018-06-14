@@ -1,11 +1,36 @@
 # External Crawler
 
-External Crawler (<b>EC</b>) is a HTTPS server to crawl data from a certain data source and send to Stratifyd backend (<b>BE</b>).
+![top level design](diagrams/topLevelDesign.svg)
+
+External crawler (<b>EC</b>) is a HTTPS server to crawl data from a certain data source and send to Stratifyd backend (<b>BE</b>).
 EC exposes a set of REST API to communicate with BE.
 EC writes back data and updates task status throught REST API on BE.
 Users can start a new task through Stratifyd frontend (<b>FE</b>).
 
-## API on the External Crawler Side
+External crawler developer (<b>Dev</b>) is responsible to register/update the [external object](#external-object) (<b>EObj</b>) on BE.
+Subdomain admin is responsible to publish a specific version of the crawler.
+
+<aside class="notice">
+There should be not more than one version under development on the BE.
+</aside>
+
+<aside class="notice">
+There is only one version published across a specific subdomain.
+</aside>
+
+<aside class='warning'>
+Admin featuer is not available until Stage 2.
+</aside>
+
+![create crawler](diagrams/createCrawler.svg)
+
+The front end user is responsible to grant access and fill necessary parameters to start the crawler.
+
+![task lifecycle](diagrams/taskLifecycle.svg)
+
+BE is responsible to delegate the task request to EC, receive upload from EC, monitor task status change, post notification to FE.
+
+## External Crawler Side
 
 ### Task
 
@@ -43,21 +68,6 @@ The BE send all the parameters necessary to create a new task. The EC returns a 
 
 `POST /task`
 
-The post body contains the following values.
-
-Field | Meaning
----------- | -------
-fid | Task id. EC should keep it until the task is closed. 
-params | Parameters to start the task. FE generates a UI according to the parameters registered in the external object. The user is resposible to fill the params.
-credential | An optional object containing user credential. It contains either `oauth` or `user` & `password`. It may contains other custom fields (eg. Foresee, Survey Monkey). OAuth is recommended for a securied access.  The EC should not keep the credential for other tasks.
-
-The response should follow the standard payload format. EC should generate a callback url for further operations.
-
-Field | Meaning
---------|-------
-callback | The callback url to notify the status change
-status | The current status of the task on EC
-
 ```python
 # need python example
 ```
@@ -89,21 +99,28 @@ $.post(`${EC_end_point}/task`, {
 })
 ```
 
-### Notify Task Change
-
-The BE notify the status change through the callback it received from the new task call.
-It's recommended to reuse the `/task` call.
-
-`PATCH /task/{taskId}/status`
-
-The post body
+The post body contains the following values.
 
 Field | Meaning
 ---------- | -------
-code | Status change
-message | Message for human's eyes
-detail | Extra message ( eg. exception detail ) for debuging
+fid | Task id. EC should keep it until the task is closed. 
+params | Parameters to start the task. FE generates a UI according to the parameters registered in the external object. The user is resposible to fill the params.
+credential | An optional object containing user credential. It contains either `oauth` or `user` & `password`. It may contains other custom fields (eg. Foresee, Survey Monkey). OAuth is recommended for a securied access.  The EC should not keep the credential for other tasks.
 
+The response should follow the standard payload format. EC should generate a callback url for further operations.
+
+Field | Meaning
+--------|-------
+callback | The callback url to notify the status change
+status | The current status of the task on EC
+
+
+### Notify Task Change
+
+The BE sends the status change through the callback it received from the new task call.
+It's recommended to reuse the `/task` call.
+
+`PATCH /task/{taskId}/status`
 
 ```python
 # need python example
@@ -118,7 +135,17 @@ $.patch(`${EC_end_point}/task/${taskId}/status`, {
 })
 ```
 
-## API on the Backend Side
+The post body
+
+Field | Meaning
+---------- | -------
+code | Status change
+message | Message for human's eyes
+detail | Extra message ( eg. exception detail ) for debuging
+
+
+
+## Backend Side
 
 ### Upload Data
 
@@ -133,12 +160,12 @@ Docs are joined with CR. So that the FE can post with gzipped stream.
 ```
 
 ```javascript
-
+// on the external crawler side
 $.post(`/actions/tasks/${task_id}/upload`,
 	docs.map(function(d){ 
 		return JSON.stringify(d,function(key,value){
 			if( typeof(value) === 'string' ) {
-				return string.replace(/\n/g,' ');
+				return string.replace(/\n/g,' '); // escape or replace CR.
 			}
 		}); 
 	}).join('\n'), function(result) {
@@ -162,6 +189,30 @@ The EC can close the task or report any status change. The status change also re
 
 `POST /actions/tasks/{task_id}/status`
 
+```python
+# need python example
+```
+
+```javascript
+// on the external crawler side
+$.post(`/actions/tasks/${task_id}/status`,
+	{
+		code: 200,
+		message: 'task done'
+	}), function(result) {
+		// OK
+	}).fail(function(jqxhr) {
+		switch( jqxhr.status ) {
+			case 400:
+				// broken post body
+			break;
+			case 404:
+				// task is not found 
+			break;
+		}
+	});
+```
+
 The post body
 
 Field | Meaning
@@ -171,7 +222,3 @@ message | Message for human's eyes
 detail | Extra message ( eg. exception detail ) for debuging
 
 
-## Developing Workflow
-
-1. Start
-1. Register an external crawler by create an <a href='#external-object'>external object</a>
