@@ -16,6 +16,13 @@ class Task {
 			code: 0
 		}
 
+		if( external.schema ) {
+			var Ajv = require('ajv');
+			var ajv = new Ajv();
+			var validate = ajv.compile(external.schema);
+			this._validate = validate;
+		}
+
 		var path = require('path');
 		var fs = require('fs');
 
@@ -209,6 +216,7 @@ class Task {
 		var schema = this._external.schema;
 
 		var output = this._output;
+		var validate = this._validate;
 		var { stream, count } = output;
 
 		var rows = raw.split('\n');
@@ -221,8 +229,11 @@ class Task {
 			} catch(e) {
 				this.fatal(`Document is broken at line ${count}`); 
 			}
-			if( json && schema ) {
+			if( json && validate ) {
 				//TODO: implement json schema validator
+				if( !validate(json) ) {
+					this.fatal(`Document doesn't match schema at line ${count}`);
+				}
 			}
 			stream.write(r);
 			stream.write('\n');
