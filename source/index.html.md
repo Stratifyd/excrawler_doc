@@ -20,6 +20,7 @@ includes:
   - relational_object
   - api_key
   - errors
+  - test
 
 search: true
 ---
