@@ -22,7 +22,8 @@ Use `POST /actions/crawlers/{fid}/task/${task_fid}`
 
 ## Upload Data
 
-The EC post data to the BE in JSON with new line (<b>CR</b>);
+The EC post data to the BE in [Newline Delimited JSON](https://github.com/ndjson/ndjson-spec#33-mediatype-and-file-extensions)
+Content type `application/x-ndjson`.
 Each doc is a JSON dictionary. Escape each new line char for string values.
 Docs are joined with CR. So that the FE can post with gzipped stream.
 

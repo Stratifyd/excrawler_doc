@@ -82,7 +82,7 @@ export default class DemoCrawler {
 		console.log(`Upload sample data chunk ${step}`);
 		// upload data;
 		var body = this._generateSampleDocs(50);
-		this._call( 'POST', '/upload', { 'content-type': 'application/json-cr', encoding: 'UTF-8' }, body, (error,response,body)=>{
+		this._call( 'POST', '/upload', { 'content-type': ' application/x-ndjson', encoding: 'UTF-8' }, body, (error,response,body)=>{
 			if( error ) {
 				console.error(`Fail to upload data chunk ${step}`, error);
 			} else {

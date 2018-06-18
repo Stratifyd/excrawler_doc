@@ -13,7 +13,7 @@ var PORT = process.env.PORT || 3333;
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({type: "application/json"}));
-app.use(bodyParser.text({ type: 'application/json-cr' }))
+app.use(bodyParser.text({ type: 'application/x-ndjson' }))
 
 // error handler
 app.use(function (err, req, res, next) {
