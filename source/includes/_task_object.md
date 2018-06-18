@@ -3,19 +3,19 @@
 Task object is a [relational object](#relational-object) representing a crawler task on the backend.
 It is also a change set to the stream.  When the user delete the task, he removes the docs from the stream as well.
 
-## Create a Task
+## Create Task
 
 Use `POST /actions/crawlers/{fid}/task`
 
 FE should not create a task without crawler object.
 
-## Delete a task
+## Delete Task
 
 `DELETE /actions/tasks/{fid}`
 
 Stop the task and remove the doc from the stream.
 
-## Retry a task
+## Retry Task
 
 Use `POST /actions/crawlers/{fid}/task/${task_fid}`
 

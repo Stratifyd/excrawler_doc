@@ -23,3 +23,7 @@ vendor/
 _yardoc
 doc/
 .idea/
+
+# npm
+node_modules/
+test/excrawler/tasks

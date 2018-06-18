@@ -51,6 +51,7 @@ The version number get increased everytime the dev changes the external object.
 Fields | Meaning
 ------ | -------
 meta   | Name, image, description
+endpoint | A REST API end point.  eg. https://excrawler.stratifyd.com
 credential | Credential requirement.  It can be undefined, 'basic' or 'oauth'.
 oauth  | A callback url to trigger OAuth procedure.  This will be opened in a popup browser window.
 oauthParameters | Parameters required for OAuth.  These params will be append to the oauth callback url.
