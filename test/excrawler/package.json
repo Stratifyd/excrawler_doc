@@ -4,13 +4,14 @@
   "description": "Test external crawler server",
   "main": "index.js",
   "scripts": {
-		"start": "babel-node src/server.js",
-		"dev": "babel-node --inspect src/server.js",
+    "start": "babel-node src/server.js",
+    "dev": "babel-node --inspect src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Yuzhong Shen <slavik.shen@stratifyd.com>",
   "license": "MIT",
   "dependencies": {
+    "ajv": "^6.5.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "request": "^2.87.0"
