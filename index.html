@@ -6,7 +6,7 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>API Reference</title>
-		<link href="images/images/favicon.ico" rel="icon" type="image/ico" />
+		<link href="images/favicon.png" rel="icon" type="image/png" />
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;python&quot;,&quot;javascript&quot;,&quot;shell&quot;]">
+  <body class="index" data-languages="[&quot;javascript&quot;,&quot;python&quot;,&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -209,10 +209,10 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo.png" class="logo" alt="Logo" />
+      <img src="images/Logo_2018.svg" class="logo" alt="Logo 2018" />
         <div class="lang-selector">
-              <a href="#" data-language-name="python">python</a>
               <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="python">python</a>
               <a href="#" data-language-name="shell">shell</a>
         </div>
         <div class="search">
@@ -224,27 +224,77 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
+            <a href="#roadmap" class="toc-h1 toc-link" data-title="roadmap">Roadmap</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#stage-0" class="toc-h2 toc-link" data-title="stage-0">Stage 0</a>
+                  </li>
+                  <li>
+                    <a href="#stage-1" class="toc-h2 toc-link" data-title="stage-1">Stage 1</a>
+                  </li>
+                  <li>
+                    <a href="#stage-2" class="toc-h2 toc-link" data-title="stage-2">Stage 2</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#external-crawler" class="toc-h1 toc-link" data-title="external-crawler">External Crawler</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#api-on-the-external-crawler-side" class="toc-h2 toc-link" data-title="api-on-the-external-crawler-side">API on the External Crawler Side</a>
+                    <a href="#external-crawler-server" class="toc-h2 toc-link" data-title="external-crawler-server">External Crawler Server</a>
                   </li>
                   <li>
-                    <a href="#api-on-the-backend-side" class="toc-h2 toc-link" data-title="api-on-the-backend-side">API on the Backend Side</a>
+                    <a href="#oauth-support" class="toc-h2 toc-link" data-title="oauth-support">OAuth Support</a>
                   </li>
                   <li>
-                    <a href="#developing-workflow" class="toc-h2 toc-link" data-title="developing-workflow">Developing Workflow</a>
+                    <a href="#backend-server" class="toc-h2 toc-link" data-title="backend-server">Backend Server</a>
                   </li>
               </ul>
           </li>
           <li>
             <a href="#external-object" class="toc-h1 toc-link" data-title="external-object">External Object</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-update-an-external-object" class="toc-h2 toc-link" data-title="create-update-an-external-object">Create/Update an External Object</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-crawler-for-a-stream" class="toc-h2 toc-link" data-title="create-a-crawler-for-a-stream">Create a Crawler for a Stream</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#crawler-object" class="toc-h1 toc-link" data-title="crawler-object">Crawler Object</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-a-crawler" class="toc-h2 toc-link" data-title="create-a-crawler">Create a Crawler</a>
+                  </li>
+                  <li>
+                    <a href="#start-a-new-task" class="toc-h2 toc-link" data-title="start-a-new-task">Start a New Task</a>
+                  </li>
+                  <li>
+                    <a href="#retry-a-task" class="toc-h2 toc-link" data-title="retry-a-task">Retry a Task</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#task-object" class="toc-h1 toc-link" data-title="task-object">Task Object</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-task" class="toc-h2 toc-link" data-title="create-task">Create Task</a>
+                  </li>
+                  <li>
+                    <a href="#delete-task" class="toc-h2 toc-link" data-title="delete-task">Delete Task</a>
+                  </li>
+                  <li>
+                    <a href="#retry-task" class="toc-h2 toc-link" data-title="retry-task">Retry Task</a>
+                  </li>
+                  <li>
+                    <a href="#upload-data" class="toc-h2 toc-link" data-title="upload-data">Upload Data</a>
+                  </li>
+                  <li>
+                    <a href="#change-status" class="toc-h2 toc-link" data-title="change-status">Change Status</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#relational-object" class="toc-h1 toc-link" data-title="relational-object">Relational Object</a>
@@ -267,7 +317,18 @@
               </ul>
           </li>
           <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
+          </li>
+          <li>
+            <a href="#how-to-test" class="toc-h1 toc-link" data-title="how-to-test">How to Test</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#external-crawler-test-server" class="toc-h2 toc-link" data-title="external-crawler-test-server">External Crawler Test Server</a>
+                  </li>
+              </ul>
           </li>
       </div>
         <ul class="toc-footer">
@@ -279,39 +340,64 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Stratifyd External Crawler Dev Document</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight python tab-python"><code><span class="o">//</span> <span class="n">get</span> <span class="n">API</span> <span class="n">Key</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"{end_point}/user/apikey"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// import signals api</span>
-<span class="kd">var</span> <span class="nx">Signals</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'signals-api'</span><span class="p">).</span><span class="nx">Signals</span><span class="p">;</span>
-<span class="c1">// load your credential</span>
-<span class="kd">var</span> <span class="nx">kAPPCredential</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./appCredential'</span><span class="p">);</span>
-<span class="c1">// if region is undefined, then it is defaulted to en</span>
-<span class="c1">// you can replace it with cn cn-2</span>
-<span class="kd">var</span> <span class="nx">region</span> <span class="o">=</span> <span class="s1">'en'</span>
-<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">Signals</span><span class="p">(</span><span class="nx">kAPPCredential</span><span class="p">,</span><span class="s1">'en'</span><span class="p">);</span>
-<span class="c1">// do something with the api ...</span>
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code>end_point</code> with your API key.</p>
-</blockquote>
+<p>Stratifyd External Crawler Document ( Draft-1 for internal development use )</p>
+<h1 id='roadmap'>Roadmap</h1><h2 id='stage-0'>Stage 0</h2>
+<p>Restore the exiting crawler working under the old framework. For demo and Live Person.</p>
 
-<p>You can find your API key on the <code>/explorer.html?mode=setting</code> or GET through <code>/user/apikey</code></p>
+<ol>
+<li>Use the <code>/external</code> call to create crawler object and analysis.</li>
+<li>The crawler object keep the parameters and credential. It push data directly to the stream.</li>
+</ol>
+<h2 id='stage-1'>Stage 1</h2>
+<p>Implement the external crawler protocol.  Have the data ingestion workflow ready.</p>
 
-<aside class="notice">
-Make sure the API key is not expired.
-</aside>
+<ol>
+<li>Replace <code>/external</code> call with external object.</li>
+<li>Use <code>/action/externals/{fid}</code> to create crawler object and analysis.</li>
+<li>Crawler objects breed task objects to get data from external crawler server.</li>
+<li>Each task object clone the parameters from the crawler object, and send them to external server with credentials from the same crawler object.  It doesn&#39;t keep credential.</li>
+<li>Task object is a change set.  It ingests the data to the stream once it&#39;s linked to the stream. User can remove the data by deleting task object.</li>
+</ol>
+<h2 id='stage-2'>Stage 2</h2>
+<p>Implement admin management feature.  Implement JSON Schema validation to enable BE detect crawler malfunction.</p>
+
+<ol>
+<li>Validate docs in each upload with JSON schema. </li>
+<li>The subdomain admin can publish a specific version of a crawler. </li>
+<li>The crawler dev has a developing version only accessible to himself.</li>
+</ol>
 <h1 id='external-crawler'>External Crawler</h1>
-<p>External Crawler (<b>EC</b>) is a HTTPS server to crawl data from a certain data source and send to Stratifyd backend (<b>BE</b>).
+<p><img src="diagrams/topLevelDesign.svg" alt="top level design" /></p>
+
+<p>External crawler (<b>EC</b>) is a HTTPS server to crawl data from a certain data source and send to Stratifyd backend (<b>BE</b>).
 EC exposes a set of REST API to communicate with BE.
 EC writes back data and updates task status throught REST API on BE.
 Users can start a new task through Stratifyd frontend (<b>FE</b>).</p>
-<h2 id='api-on-the-external-crawler-side'>API on the External Crawler Side</h2><h3 id='task'>Task</h3>
+
+<p>External crawler developer (<b>Dev</b>) is responsible to register/update the <a href="#external-object">external object</a> (<b>EObj</b>) on BE.
+Subdomain admin is responsible to publish a specific version of the crawler.</p>
+
+<aside class="notice">
+There should be not more than one version under development on the BE.
+There is only one version published across a specific subdomain.
+</aside>
+
+<aside class='warning'>
+Admin feature and JSON Schema is not available until Stage 2.
+</aside>
+
+<p><img src="diagrams/createCrawler.svg" alt="create crawler" /></p>
+
+<p>The front end user is responsible to grant access and fill necessary parameters to start the crawler.</p>
+
+<p><img src="diagrams/taskLifecycle.svg" alt="task lifecycle" /></p>
+
+<p>BE is responsible to delegate the task request to EC, receive upload from EC, monitor task status change, post notification to FE.</p>
+<h2 id='external-crawler-server'>External Crawler Server</h2>
+<p><img src="diagrams/externalCrawlerServer.svg" alt="task lifecycle" /></p>
+<h3 id='task'>Task</h3>
+<p><img src="diagrams/externalCrawlerTask.svg" alt="task lifecycle" /></p>
+
 <p>EC is responsible to maintain a crawler for each running task on the BE.
 Each task has a set of parameters, a credential and a status.</p>
 
@@ -389,49 +475,9 @@ Each task has a set of parameters, a credential and a status.</p>
 <h3 id='start-a-new-task'>Start a New Task</h3>
 <p>The BE send all the parameters necessary to create a new task. The EC returns a callback url for this new task.  The EC is also resposible to keep the task id for further operations.</p>
 
-<p><code>POST /task</code></p>
-
-<p>The post body contains the following values.</p>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>fid</td>
-<td>Task id. EC should keep it until the task is closed.</td>
-</tr>
-<tr>
-<td>params</td>
-<td>Parameters to start the task. FE generates a UI according to the parameters registered in the external object. The user is resposible to fill the params.</td>
-</tr>
-<tr>
-<td>credential</td>
-<td>An optional object containing user credential. It contains either <code>oauth</code> or <code>user</code> &amp; <code>password</code>. It may contains other custom fields (eg. Foresee, Survey Monkey). OAuth is recommended for a securied access.  The EC should not keep the credential for other tasks.</td>
-</tr>
-</tbody></table>
-
-<p>The response should follow the standard payload format. EC should generate a callback url for further operations.</p>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>callback</td>
-<td>The callback url to notify the status change</td>
-</tr>
-<tr>
-<td>status</td>
-<td>The current status of the task on EC</td>
-</tr>
-</tbody></table>
+<p><code>POST /task?version={external_crawler_version}</code></p>
 <pre class="highlight python tab-python"><code><span class="c"># need python example</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">EC_end_point</span><span class="p">}</span><span class="s2">/task`</span><span class="p">,</span> <span class="p">{</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">EC_end_point</span><span class="p">}</span><span class="s2">/task?version=</span><span class="p">${</span><span class="nx">external_crawler_version</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="p">{</span>
 
     <span class="na">fid</span><span class="p">:</span> <span class="s2">`task_object_id`</span><span class="p">,</span>
     <span class="na">params</span><span class="p">:</span> <span class="p">{</span>
@@ -455,12 +501,63 @@ Each task has a set of parameters, a credential and a status.</p>
     <span class="c1">// keep the callback for further operation</span>
 
 <span class="p">})</span>
-</code></pre><h3 id='notify-task-change'>Notify Task Change</h3>
-<p>The BE notify the status change through the callback it received from the new task call.
+</code></pre>
+<p>The post body contains the following values.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>fid</td>
+<td>Task id. EC should keep it until the task is closed.</td>
+</tr>
+<tr>
+<td>params</td>
+<td>Parameters to start the task. FE generates a UI according to the parameters registered in the external object. The user is resposible to fill the params.</td>
+</tr>
+<tr>
+<td>credential</td>
+<td>An optional object containing user credential. It contains either <code>oauth</code> or <code>user</code> &amp; <code>password</code>. It may contains other custom fields (eg. Foresee, Survey Monkey). OAuth is recommended for a securied access.  The EC should not keep the credential for other tasks.</td>
+</tr>
+<tr>
+<td>endpoint</td>
+<td>The endpoint url for the crawler to upload and change task status</td>
+</tr>
+</tbody></table>
+
+<p>The response should follow the standard payload format. EC should generate a callback url for further operations.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>callback</td>
+<td>The callback url to notify the status change</td>
+</tr>
+<tr>
+<td>status</td>
+<td>The current status of the task on EC</td>
+</tr>
+</tbody></table>
+<h3 id='notify-task-change'>Notify Task Change</h3>
+<p>The BE sends the status change through the callback it received from the new task call.
 It&#39;s recommended to reuse the <code>/task</code> call.</p>
 
-<p><code>PATCH /task/{taskId}/status</code></p>
-
+<p><code>PATCH /task/{taskId}/status?version={external_crawler_version}</code></p>
+<pre class="highlight python tab-python"><code><span class="c"># need python example</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">$</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">EC_end_point</span><span class="p">}</span><span class="s2">/task/</span><span class="p">${</span><span class="nx">taskId</span><span class="p">}</span><span class="s2">/status?version=</span><span class="p">${</span><span class="nx">external_crawler_version</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">code</span><span class="p">:</span> <span class="mi">408</span><span class="p">,</span>
+    <span class="na">message</span><span class="p">:</span> <span class="s1">'Task is timeout'</span><span class="p">,</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// recycle the resource</span>
+<span class="p">})</span>
+</code></pre>
 <p>The post body</p>
 
 <table><thead>
@@ -482,26 +579,370 @@ It&#39;s recommended to reuse the <code>/task</code> call.</p>
 <td>Extra message ( eg. exception detail ) for debuging</td>
 </tr>
 </tbody></table>
-<pre class="highlight python tab-python"><code><span class="c"># need python example</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">$</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">EC_end_point</span><span class="p">}</span><span class="s2">/task/</span><span class="p">${</span><span class="nx">taskId</span><span class="p">}</span><span class="s2">/status`</span><span class="p">,</span> <span class="p">{</span>
-    <span class="na">code</span><span class="p">:</span> <span class="mi">408</span><span class="p">,</span>
-    <span class="na">message</span><span class="p">:</span> <span class="s1">'Task is timeout'</span><span class="p">,</span>
-<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// recycle the resource</span>
+<h2 id='oauth-support'>OAuth Support</h2>
+<p>External crawler server can support OAuth buy putting a endpoint url in the <a href="#external-object">external object</a> oauth field.
+EC server is responsible to keep tokens.  And clear the token after it receive a <a href="#clear-token">clear request</a>.</p>
+
+<p>The endpoint gets a uuid (user id) and subdomain from the FE in the url params.</p>
+
+<table><thead>
+<tr>
+<th>OAuth Params</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>uuid</td>
+<td>Backend user id</td>
+</tr>
+<tr>
+<td>subdomain</td>
+<td>Subdomain for the current FE</td>
+</tr>
+<tr>
+<td>reset</td>
+<td>Force reset the existing token. Set this to 1 when user want to swtich to another account.</td>
+</tr>
+</tbody></table>
+
+<p>The OAuth endpoint has to support the following calls.</p>
+<h3 id='login'>Login</h3>
+<p><code>GET {oauth_end_point}/login?uuid={uuid}&amp;subdomain={subdomain}&amp;reset={reset}</code></p>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// pop up a oauth window</span>
+<span class="kd">var</span> <span class="nx">win</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span> <span class="s2">`</span><span class="p">${</span><span class="nx">oauth_end_point</span><span class="p">}</span><span class="s2">/login?uuid=</span><span class="p">${</span><span class="nx">uuid</span><span class="p">}</span><span class="s2">&amp;subdomain=</span><span class="p">${</span><span class="nx">subdomain</span><span class="p">}</span><span class="s2">&amp;reset=0`</span><span class="p">,</span>
+    <span class="s1">'ConnectWithOAuth'</span><span class="p">,</span> 
+    <span class="s1">'location=0,status=0,width=640,height=440'</span> <span class="p">);</span>
+<span class="kd">var</span> <span class="nx">testInterval</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="k">if</span><span class="p">(</span> <span class="nx">win</span> <span class="o">&amp;&amp;</span> <span class="nx">win</span><span class="p">.</span><span class="nx">closed</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nx">thirdPartyToken</span><span class="p">(</span><span class="nx">party</span><span class="p">,</span> <span class="nx">current_uuid</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nx">clearInterval</span><span class="p">(</span><span class="nx">testInterval</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// something wrong within the oauth window</span>
+    <span class="p">}</span>
+<span class="p">},</span> <span class="mi">500</span><span class="p">);</span>
+</code></pre>
+<p>The FE pop up a window for the OAuth request.  User will be redirected to thirdparty authentication page and complete the oauth.  When the OAuth is completed, the thirdparty page should redirect itself to EC server.  Then the EC server return a HTML page with a <code>&lt;script&gt;window.close()&lt;/script&gt;</code> to close the popup window.</p>
+
+<p>The user may abort the OAuth by closing the popup window anytime.</p>
+<h3 id='get-token'>Get Token</h3>
+<p><code>GET {oauth_end_point}/token?uuid={uuid}&amp;subdomain={subdomain}</code></p>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">oauth_end_point</span><span class="p">}</span><span class="s2">/token?uuid=</span><span class="p">${</span><span class="nx">uuid</span><span class="p">}</span><span class="s2">&amp;subdomain=</span><span class="p">${</span><span class="nx">subdomain</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">oauth</span><span class="p">){</span>
+
+    <span class="cm">/*
+        the oauth should has user, expiry, issued, token
+    */</span>
+
+    <span class="c1">// must have</span>
+    <span class="kd">var</span> <span class="p">{</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">expiry</span><span class="p">,</span> <span class="nx">issued</span><span class="p">,</span> <span class="nx">token</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">oauth</span><span class="p">;</span>
+
+    <span class="c1">// optional</span>
+    <span class="kd">var</span> <span class="p">{</span> <span class="nx">reported_name</span><span class="p">,</span> <span class="nx">email_address</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">oauth</span><span class="p">;</span>
+
+    <span class="c1">// the FE will put this into crawler object</span>
+
+<span class="p">}).</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">jqxhr</span><span class="p">,</span><span class="nx">textStatus</span><span class="p">,</span><span class="nx">error</span><span class="p">){</span>
+    <span class="c1">// oauth failed</span>
+    <span class="k">if</span><span class="p">(</span> <span class="nx">jqxhr</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="mi">404</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// token doesn't exist</span>
+    <span class="p">}</span>
 <span class="p">})</span>
-</code></pre><h2 id='api-on-the-backend-side'>API on the Backend Side</h2><h3 id='upload-data'>Upload Data</h3>
-<p>The EC post data to the BE in JSON with new line (<b>CR</b>);
+</code></pre>
+<blockquote>
+<p>OAuth should looks like </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"expiry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"expiry_date"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"issued"</span><span class="p">:</span><span class="w"> </span><span class="s2">"token_issue_date"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_id"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"token"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reported_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_display_name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_email"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>OAuth Field</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user</td>
+<td>Third-party service user id. ( It&#39;s not the BE user id )</td>
+</tr>
+<tr>
+<td>token</td>
+<td>Token</td>
+</tr>
+<tr>
+<td>expiry</td>
+<td>Token expiry timestamp</td>
+</tr>
+<tr>
+<td>issued</td>
+<td>Token issue timestamp</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Optional Result</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reported_name</td>
+<td>User display name</td>
+</tr>
+<tr>
+<td>email_address</td>
+<td>User email</td>
+</tr>
+</tbody></table>
+<h3 id='clear-token'>Clear Token</h3>
+<p><code>DELETE {oauth_end_point}/token?uuid={uuid}&amp;subdomain={subdomain}</code></p>
+
+<blockquote>
+<p>The EC server should not keep the token after clear call</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// clear the token</span>
+<span class="nx">$</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">oauth_end_point</span><span class="p">}</span><span class="s2">/token?uuid=</span><span class="p">${</span><span class="nx">uuid</span><span class="p">}</span><span class="s2">&amp;subdomain=</span><span class="p">${</span><span class="nx">subdomain</span><span class="p">}</span><span class="s2">`</span><span class="p">,(</span><span class="nx">json</span><span class="p">)</span><span class="o">=&gt;</span><span class="p">{</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">oauth_end_point</span><span class="p">}</span><span class="s2">/token?uuid=</span><span class="p">${</span><span class="nx">uuid</span><span class="p">}</span><span class="s2">&amp;subdomain=</span><span class="p">${</span><span class="nx">subdomain</span><span class="p">}</span><span class="s2">`</span><span class="p">,()</span><span class="o">=&gt;</span><span class="p">{</span>
+        <span class="nx">assert</span><span class="p">(</span> <span class="kc">false</span><span class="p">,</span> <span class="s1">'the ES server should return 404 after the delete call'</span><span class="p">.</span>
+    <span class="p">}).</span><span class="nx">fail</span><span class="p">((</span><span class="nx">jqxhr</span><span class="p">)</span><span class="o">=&gt;</span><span class="p">{</span>
+        <span class="nx">assert</span><span class="p">(</span> <span class="nx">jqxhr</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="mi">404</span><span class="p">,</span> <span class="s1">'the EC server should return 404 after the delete call'</span> <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</code></pre><h2 id='backend-server'>Backend Server</h2>
+<p>BE exposes <a href="#task-object">task object</a> to the external crawler server.</p>
+
+<ol>
+<li>Upload data through <code>POST /actions/tasks/{task_id}/upload</code>.</li>
+<li>Notify task status change throuhg <code>POST /actions/tasks/{task_id}/status</code></li>
+</ol>
+<h1 id='external-object'>External Object</h1>
+<p>External object is a <a href="#relational-object">relational object</a> representing a resigtered crawler on the backend.</p>
+<h2 id='create-update-an-external-object'>Create/Update an External Object</h2>
+<p><code>POST /externals</code></p>
+
+<p><code>PATCH /externals/{fid}</code></p>
+<pre class="highlight javascript tab-javascript"><code>
+<span class="nx">APIPost</span><span class="p">(</span> <span class="s2">`/externals`</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">meta</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s1">'display name'</span><span class="p">,</span>
+        <span class="na">image</span><span class="p">:</span> <span class="s1">'url to your icon'</span><span class="p">,</span>
+        <span class="na">description</span><span class="p">:</span> <span class="s1">'bla bla bla'</span>
+    <span class="p">},</span>
+    <span class="na">parameters</span><span class="p">:</span> <span class="p">[</span>
+        <span class="cm">/*parameter list*/</span>
+    <span class="p">],</span>
+    <span class="na">crendential</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">oauth</span><span class="p">:</span> <span class="s1">'https://my_oauth_callback'</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="na">analysis</span><span class="p">:</span> <span class="p">{</span> <span class="cm">/* analysis prototype */</span> <span class="p">}</span>
+
+<span class="p">},(</span><span class="nx">json</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="p">{</span> <span class="nx">payload</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">json</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="p">{</span> <span class="nx">meta</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">payload</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="p">{</span> <span class="nx">fid</span><span class="p">,</span> <span class="nx">version</span> <span class="p">}</span>
+
+    <span class="cm">/*
+        Keep the fid and version.
+        The fid is the unique id to indetify your crawler on BE.
+        The BE will send the version to the external server in the url parameter.
+        The version number get increased everytime the dev changes the external object.
+    */</span>
+
+<span class="p">})</span>
+
+</code></pre>
+<aside class="notice">
+Crawler dev should keep the fid and version.
+</aside>
+
+<p>The fid is the unique id to indetify your crawler on BE.
+The BE will send the version to the external server in the url parameter.
+The version number get increased everytime the dev changes the external object.</p>
+
+<table><thead>
+<tr>
+<th>Fields</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>meta</td>
+<td>Name, image, description</td>
+</tr>
+<tr>
+<td>endpoint</td>
+<td>A REST API end point.  eg. https://excrawler.stratifyd.com</td>
+</tr>
+<tr>
+<td>credential</td>
+<td>Credential requirement.  It can be undefined, &#39;basic&#39; or &#39;oauth&#39;.</td>
+</tr>
+<tr>
+<td>oauth</td>
+<td>A callback url to trigger OAuth procedure.  This will be opened in a popup browser window.</td>
+</tr>
+<tr>
+<td>oauthParameters</td>
+<td>Parameters required for OAuth.  These params will be append to the oauth callback url.</td>
+</tr>
+<tr>
+<td>schema</td>
+<td>A <a href="http://json-schema.org/">JSON schema</a> to validate the doc in upload request</td>
+</tr>
+<tr>
+<td>docIdField</td>
+<td>The field name used as unique doc id.  The BE generate the id by the content of the doc when the field is missing.</td>
+</tr>
+<tr>
+<td>headers</td>
+<td>Custom headers for HTTP requests from BE to EC</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td>Task parameter list</td>
+</tr>
+<tr>
+<td>analysis</td>
+<td>Analysis prototype</td>
+</tr>
+</tbody></table>
+<h3 id='parameter'>Parameter</h3>
+<p>FE generates UI according to the parameter list.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Key of the parameter</td>
+</tr>
+<tr>
+<td>display_name</td>
+<td>Name on the UI</td>
+</tr>
+<tr>
+<td>description</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>req</td>
+<td>Is required or not, boolean</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string, password, bool, date, location, multi_bool, list, multi_search, interger</td>
+</tr>
+<tr>
+<td>min</td>
+<td>Minimum value, only legit for numerical type</td>
+</tr>
+<tr>
+<td>max</td>
+<td>Maximum value, only legit for numerical type</td>
+</tr>
+<tr>
+<td>options</td>
+<td>Option list for list</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-crawler-for-a-stream'>Create a Crawler for a Stream</h2>
+<p><code>POST /actions/externals/{fid}/crawler</code></p>
+<pre class="highlight javascript tab-javascript"><code>
+<span class="nx">APIPost</span><span class="p">(</span> <span class="s2">`/actions/externals/</span><span class="p">${</span><span class="nx">fid</span><span class="p">}</span><span class="s2">/crawler`</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">meta</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">links</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="na">from</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="s1">'streams'</span><span class="p">,</span> <span class="na">fid</span><span class="p">:</span> <span class="nx">stream_id</span> <span class="p">}</span> <span class="c1">// there should be one and only one stream</span>
+        <span class="p">}]</span>
+    <span class="p">},</span>
+    <span class="na">params</span><span class="p">:</span> <span class="p">{</span>
+        <span class="cm">/*param dict here*/</span>
+    <span class="p">},</span>
+    <span class="na">crendential</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">oauth</span><span class="p">:</span> <span class="p">{</span>
+            <span class="cm">/* oauth here */</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">},(</span><span class="nx">json</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="p">{</span> <span class="nx">payload</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">json</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="p">{</span> <span class="nx">crawler</span><span class="p">,</span> <span class="nx">analysis</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">payload</span><span class="p">;</span>
+
+    <span class="c1">// get one crawler object and one analysis object</span>
+
+<span class="p">})</span>
+
+</code></pre>
+<p><img src="diagrams/dataIngestion.svg" alt="Data Ingestion" /></p>
+
+<p>The crawler action creates a crawler and a predefined analysis, links them to a stream.</p>
+<h1 id='crawler-object'>Crawler Object</h1>
+<p>Crawler object is a <a href="#relational-object">relational object</a> representing a external crawler setting on the backend.
+A one time crawler breeds a task object.
+A scheduled crawler breeds multiple task objects sequentially.</p>
+
+<p>First the FE has to get the right <a href="#external-object">external object</a>.  Has the user complete credential and parameter list.</p>
+
+<p>Then the user start a crawler by creating a crawler object.</p>
+
+<p>A stream can has only one crawler object linked.  And a crawler can has only one stream linked to itself.</p>
+<h2 id='create-a-crawler'>Create a Crawler</h2>
+<p>Use <code>POST /actions/externals/{fid}/crawler</code></p>
+
+<p>FE should not create a crawler without external object.</p>
+<h2 id='start-a-new-task'>Start a New Task</h2>
+<p><code>POST /actions/crawlers/{fid}/task</code></p>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// in the FE</span>
+<span class="nx">APIPost</span><span class="p">(</span> <span class="s1">'/actions/crawlers/${fid}/task'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">params</span><span class="p">:</span> <span class="p">{</span> <span class="cm">/* override params if necessary */</span> <span class="p">}</span>
+<span class="p">},</span> <span class="p">(</span><span class="nx">json</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">xhr</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="k">if</span><span class="p">(</span> <span class="nx">jqxhr</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="mi">208</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// there is a running task</span>
+    <span class="p">}</span>
+
+<span class="p">})</span>
+</code></pre>
+<p>The task import params and credential from the crawler and send them to external server.
+It merges the params in the post body with the params from crawler.</p>
+
+<p>Return <code>208</code> if there is a running task for the crawler</p>
+<h2 id='retry-a-task'>Retry a Task</h2>
+<p><code>POST /actions/crawlers/{fid}/task/${task_fid}</code></p>
+<h1 id='task-object'>Task Object</h1>
+<p>Task object is a <a href="#relational-object">relational object</a> representing a crawler task on the backend.
+It is also a change set to the stream.  When the user delete the task, he removes the docs from the stream as well.</p>
+<h2 id='create-task'>Create Task</h2>
+<p>Use <code>POST /actions/crawlers/{fid}/task</code></p>
+
+<p>FE should not create a task without crawler object.</p>
+<h2 id='delete-task'>Delete Task</h2>
+<p><code>DELETE /actions/tasks/{fid}</code></p>
+
+<p>Stop the task and remove the doc from the stream.</p>
+<h2 id='retry-task'>Retry Task</h2>
+<p>Use <code>POST /actions/crawlers/{fid}/task/${task_fid}</code></p>
+<h2 id='upload-data'>Upload Data</h2>
+<p>The EC post data to the BE in <a href="https://github.com/ndjson/ndjson-spec#33-mediatype-and-file-extensions">Newline Delimited JSON</a>
+Content type <code>application/x-ndjson</code>.
 Each doc is a JSON dictionary. Escape each new line char for string values.
 Docs are joined with CR. So that the FE can post with gzipped stream.</p>
 
 <p><code>POST /actions/tasks/{task_id}/upload</code></p>
 <pre class="highlight python tab-python"><code><span class="c"># need python example</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// on the external crawler side</span>
 <span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">`/actions/tasks/</span><span class="p">${</span><span class="nx">task_id</span><span class="p">}</span><span class="s2">/upload`</span><span class="p">,</span>
     <span class="nx">docs</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">){</span> 
         <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="nx">value</span><span class="p">){</span>
             <span class="k">if</span><span class="p">(</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="o">===</span> <span class="s1">'string'</span> <span class="p">)</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\n</span><span class="sr">/g</span><span class="p">,</span><span class="s1">' '</span><span class="p">);</span>
+                <span class="k">return</span> <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\n</span><span class="sr">/g</span><span class="p">,</span><span class="s1">' '</span><span class="p">);</span> <span class="c1">// escape or replace CR.</span>
             <span class="p">}</span>
         <span class="p">});</span> 
     <span class="p">}).</span><span class="nx">join</span><span class="p">(</span><span class="s1">'\n'</span><span class="p">),</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
@@ -516,11 +957,29 @@ Docs are joined with CR. So that the FE can post with gzipped stream.</p>
             <span class="k">break</span><span class="p">;</span>
         <span class="p">}</span>
     <span class="p">});</span>
-</code></pre><h3 id='change-status'>Change Status</h3>
+</code></pre><h2 id='change-status'>Change Status</h2>
 <p>The EC can close the task or report any status change. The status change also reflected in the stream linked to task.</p>
 
 <p><code>POST /actions/tasks/{task_id}/status</code></p>
-
+<pre class="highlight python tab-python"><code><span class="c"># need python example</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// on the external crawler side</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">`/actions/tasks/</span><span class="p">${</span><span class="nx">task_id</span><span class="p">}</span><span class="s2">/status`</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="na">code</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="na">message</span><span class="p">:</span> <span class="s1">'task done'</span>
+    <span class="p">}),</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// OK</span>
+    <span class="p">}).</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">jqxhr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">switch</span><span class="p">(</span> <span class="nx">jqxhr</span><span class="p">.</span><span class="nx">status</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="mi">400</span><span class="p">:</span>
+                <span class="c1">// broken post body</span>
+            <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">404</span><span class="p">:</span>
+                <span class="c1">// task is not found </span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+</code></pre>
 <p>The post body</p>
 
 <table><thead>
@@ -542,16 +1001,11 @@ Docs are joined with CR. So that the FE can post with gzipped stream.</p>
 <td>Extra message ( eg. exception detail ) for debuging</td>
 </tr>
 </tbody></table>
-<h2 id='developing-workflow'>Developing Workflow</h2>
-<ol>
-<li>Start</li>
-<li>Register an external crawler by create an <a href='#external-object'>external object</a></li>
-</ol>
-<h1 id='external-object'>External Object</h1><h1 id='task-object'>Task Object</h1><h1 id='relational-object'>Relational Object</h1>
+<h1 id='relational-object'>Relational Object</h1>
 <p>Relational object is the fundament of the backend system.  Most of the handlers are relational objects.</p>
 <h2 id='create'>Create</h2>
 <p>Create a relational object of specific type. The object is initialized with the JSON in the post body.</p>
-<h3 id='http-request'>HTTP Request</h3>
+
 <p><code>POST /{type}</code></p>
 <pre class="highlight python tab-python"><code><span class="c"># need python example</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">Signals</span><span class="p">.</span><span class="nx">APIPost</span><span class="p">(</span> <span class="s1">'/analyses/'</span><span class="p">,</span>
@@ -573,7 +1027,7 @@ The <code>meta.links</code> is a special field which can be only used in the POS
 <aside class="notice">
 To change a list/array, you have to send a complete list.
 </aside>
-<h3 id='http-request-2'>HTTP Request</h3>
+
 <p><code>PATCH /{type}/{fid}</code></p>
 <pre class="highlight python tab-python"><code><span class="c"># need python example</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">Signals</span><span class="p">.</span><span class="nx">APIPatch</span><span class="p">(</span> <span class="s2">`/analyses/</span><span class="p">${</span><span class="nx">fid</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
@@ -597,7 +1051,7 @@ To change a list/array, you have to send a complete list.
 <span class="p">);</span>
 </code></pre><h2 id='delete'>Delete</h2>
 <p>Delete an existing relational object.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+
 <p><code>DELETE /{type}/{fid}</code></p>
 <pre class="highlight python tab-python"><code><span class="c"># need python example</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">Signals</span><span class="p">.</span><span class="nx">APIDelete</span><span class="p">(</span> <span class="s2">`/analyses/</span><span class="p">${</span><span class="nx">fid</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="nx">callback</span> <span class="p">};</span>
@@ -607,6 +1061,32 @@ To change a list/array, you have to send a complete list.
 <p>For example</p>
 
 <p>POST <code>/actions/models/${fid}/train</code></p>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="o">//</span> <span class="n">get</span> <span class="n">API</span> <span class="n">Key</span>
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"{end_point}/user/apikey"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// import signals api</span>
+<span class="kd">var</span> <span class="nx">Signals</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'signals-api'</span><span class="p">).</span><span class="nx">Signals</span><span class="p">;</span>
+<span class="c1">// load your credential</span>
+<span class="kd">var</span> <span class="nx">kAPPCredential</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./appCredential'</span><span class="p">);</span>
+<span class="c1">// if region is undefined, then it is defaulted to en</span>
+<span class="c1">// you can replace it with cn cn-2</span>
+<span class="kd">var</span> <span class="nx">region</span> <span class="o">=</span> <span class="s1">'en'</span>
+<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">Signals</span><span class="p">(</span><span class="nx">kAPPCredential</span><span class="p">,</span><span class="s1">'en'</span><span class="p">);</span>
+<span class="c1">// do something with the api ...</span>
+</code></pre>
+<blockquote>
+<p>Make sure to replace <code>end_point</code> with your API key.</p>
+</blockquote>
+
+<p>You can find your API key on the <code>/explorer.html?mode=setting</code> or GET through <code>/user/apikey</code></p>
+
+<aside class="notice">
+Make sure the API key is not expired.
+</aside>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
@@ -665,12 +1145,24 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
-
+<h1 id='how-to-test'>How to Test</h1><h2 id='external-crawler-test-server'>External Crawler Test Server</h2>
+<ol>
+<li>Pull https://github.com/Stratifyd/excrawler_doc</li>
+<li>Goto <code>test/excrawler</code></li>
+<li>run <code>npm install</code></li>
+<li>run <code>npm run start</code></li>
+<li>open the server page for more detail</li>
+</ol>
+<pre class="highlight shell tab-shell"><code>git pull https://github.com/Stratifyd/excrawler_doc
+<span class="nb">cd </span>excrawler_doc/test/excrawler
+npm install
+npm run start
+</code></pre>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="python">python</a>
                 <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="python">python</a>
                 <a href="#" data-language-name="shell">shell</a>
           </div>
       </div>
