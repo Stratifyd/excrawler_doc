@@ -19,6 +19,7 @@ class Task {
 		if( external.schema ) {
 			var Ajv = require('ajv');
 			var ajv = new Ajv();
+			ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
 			var validate = ajv.compile(external.schema);
 			this._validate = validate;
 		}

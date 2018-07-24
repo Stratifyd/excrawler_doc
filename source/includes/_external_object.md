@@ -76,6 +76,46 @@ type  | string, password, bool, date, location, multi_bool, list, multi_search, 
 min   | Minimum value, only legit for numerical type
 max   | Maximum value, only legit for numerical type
 options | Option list for list|multi_search type.  Each item can be a string or a object of { value, label }
+restrictions | List fo restriction rule. Use this to compare values.
+
+Restriction Rule
+
+```javascript
+[
+	{
+		display_name: 'Start Time',
+		description: "Select data after this time.",
+		type:"date",
+		name:"date_range_start",
+		restrictions: [
+			{
+				rule: 'lt',
+				target: "date_range_end",
+				message: "Must be earlier than the end time"
+			}
+		]
+	},
+	{
+		display_name: 'End Time',
+		description: "Select data before this time.",
+		type:"date",
+		name:"date_range_end",
+		restrictions: [
+			{
+				rule: 'gt',
+				target: "date_range_start",
+				message: "Must be later than the start time"
+			}
+		]
+	}
+]
+```
+
+Field | Meaning
+----- | ---------
+rule  | gt, gte, lt, lte, eq
+target| compare with this param
+message | Error message when the comparison fails
 
 
 ## Create a Crawler for a Stream
