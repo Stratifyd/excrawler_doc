@@ -852,6 +852,60 @@ The version number get increased everytime the dev changes the external object.<
 <td>options</td>
 <td>Option list for list</td>
 </tr>
+<tr>
+<td>restrictions</td>
+<td>List fo restriction rule. Use this to compare values.</td>
+</tr>
+</tbody></table>
+
+<p>Restriction Rule</p>
+<pre class="highlight javascript tab-javascript"><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="na">display_name</span><span class="p">:</span> <span class="s1">'Start Time'</span><span class="p">,</span>
+        <span class="na">description</span><span class="p">:</span> <span class="s2">"Select data after this time."</span><span class="p">,</span>
+        <span class="na">type</span><span class="p">:</span><span class="s2">"date"</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span><span class="s2">"date_range_start"</span><span class="p">,</span>
+        <span class="na">restrictions</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="na">rule</span><span class="p">:</span> <span class="s1">'lt'</span><span class="p">,</span>
+                <span class="na">target</span><span class="p">:</span> <span class="s2">"date_range_end"</span><span class="p">,</span>
+                <span class="na">message</span><span class="p">:</span> <span class="s2">"Must be earlier than the end time"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="na">display_name</span><span class="p">:</span> <span class="s1">'End Time'</span><span class="p">,</span>
+        <span class="na">description</span><span class="p">:</span> <span class="s2">"Select data before this time."</span><span class="p">,</span>
+        <span class="na">type</span><span class="p">:</span><span class="s2">"date"</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span><span class="s2">"date_range_end"</span><span class="p">,</span>
+        <span class="na">restrictions</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="na">rule</span><span class="p">:</span> <span class="s1">'gt'</span><span class="p">,</span>
+                <span class="na">target</span><span class="p">:</span> <span class="s2">"date_range_start"</span><span class="p">,</span>
+                <span class="na">message</span><span class="p">:</span> <span class="s2">"Must be later than the start time"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>rule</td>
+<td>gt, gte, lt, lte, eq</td>
+</tr>
+<tr>
+<td>target</td>
+<td>compare with this param</td>
+</tr>
+<tr>
+<td>message</td>
+<td>Error message when the comparison fails</td>
+</tr>
 </tbody></table>
 <h2 id='create-a-crawler-for-a-stream'>Create a Crawler for a Stream</h2>
 <p><code>POST /actions/externals/{fid}/crawler</code></p>
